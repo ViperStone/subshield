@@ -1,0 +1,422 @@
+[
+  {
+    "lead_info": {
+      "company": "Apex Building Group LLC",
+      "contact": "Marcus Vance",
+      "title": "VP of Operations",
+      "email": "mvance@apexbuilding.com",
+      "phone": "(415) 881-2091",
+      "city": "San Francisco, CA",
+      "trade": "Commercial GC",
+      "estimated_subs": 35,
+      "qualification_tier": "Tier 1: High Priority ($199/mo Pro Target)",
+      "estimated_penalty_exposure": "$29,750"
+    },
+    "sequence": {
+      "step_1_audit_hook": {
+        "subject": "quick question about Apex Building Group LLC's sub COIs",
+        "body": "Hi Marcus,\n\nNoticed Apex Building Group LLC is running some significant commercial projects across San Francisco, CA.\n\nQuick question: who on your team is currently responsible for chasing updated ACORD 25 insurance certificates from your ~35 subcontractors when their policies expire?\n\nMost general contractors I speak with track this in a spreadsheet\u2014which usually works until an insurance auditor hits them with an unexpected $29,750 retroactive penalty for an expired policy or missing Additional Insured endorsement.\n\nI built a lightweight tool called SubShield that completely automates this:\n1. Your subs receive a zero-login magic link to upload their renewal certificate from any phone or computer.\n2. Our AI reads the limits and policy dates in 5 seconds to confirm they meet your exact coverage rules.\n3. Automated reminders chase them 30 days before expiration so your office doesn't have to.\n\nWe're offering a free insurance compliance check for commercial GCs in San Francisco, CA. If you send over 5-10 of your current subcontractor certificates, our system will run an audit report highlighting any expired policies, missing endorsements, or coverage deficits at no charge.\n\nOpen to seeing what a 2-minute audit looks like for Apex Building Group LLC?\n\nBest regards,\n\n[Your Name]\nFounder, SubShield\nsubshield.io | [Your Phone Number]"
+      },
+      "step_2_video_bump": {
+        "subject": "Re: quick question about Apex Building Group LLC's sub COIs",
+        "body": "Hi Marcus,\n\nFollowing up on my note from Tuesday. \n\nI recorded a 60-second walkthrough showing how our zero-login upload link works for subcontractors (they don't need a password or app):\n\n[Link: 60-Second SubShield Demo Walkthrough]\n\nEven if you're happy with your current spreadsheet process, would you be open to running 5 sample certificates through our engine just to see if any expired policies slip past your filters?\n\nBest,\n\n[Your Name]"
+      },
+      "step_3_breakup": {
+        "subject": "closing the loop regarding Apex Building Group LLC",
+        "body": "Hi Marcus,\n\nAssuming managing subcontractor certificates isn't a top priority for Apex Building Group LLC right now.\n\nI put together a 1-page \"GC Subcontractor Insurance Audit Checklist (2026 Edition)\" that lists the top 5 endorsement mistakes auditors penalize contractors for. Happy to send it over if helpful.\n\nIf you ever want to automate your certificate renewals down the road, feel free to reach back out.\n\nBest of luck with your projects across San Francisco, CA.\n\nBest,\n\n[Your Name]"
+      }
+    }
+  },
+  {
+    "lead_info": {
+      "company": "Keystone Commercial Builders",
+      "contact": "David Sterling",
+      "title": "Director of Field Operations",
+      "email": "dsterling@keystonecommercial.com",
+      "phone": "(510) 902-1144",
+      "city": "Oakland, CA",
+      "trade": "General Building",
+      "estimated_subs": 40,
+      "qualification_tier": "Tier 1: High Priority ($199/mo Pro Target)",
+      "estimated_penalty_exposure": "$34,000"
+    },
+    "sequence": {
+      "step_1_audit_hook": {
+        "subject": "quick question about Keystone Commercial Builders's sub COIs",
+        "body": "Hi David,\n\nNoticed Keystone Commercial Builders is running some significant commercial projects across Oakland, CA.\n\nQuick question: who on your team is currently responsible for chasing updated ACORD 25 insurance certificates from your ~40 subcontractors when their policies expire?\n\nMost general contractors I speak with track this in a spreadsheet\u2014which usually works until an insurance auditor hits them with an unexpected $34,000 retroactive penalty for an expired policy or missing Additional Insured endorsement.\n\nI built a lightweight tool called SubShield that completely automates this:\n1. Your subs receive a zero-login magic link to upload their renewal certificate from any phone or computer.\n2. Our AI reads the limits and policy dates in 5 seconds to confirm they meet your exact coverage rules.\n3. Automated reminders chase them 30 days before expiration so your office doesn't have to.\n\nWe're offering a free insurance compliance check for commercial GCs in Oakland, CA. If you send over 5-10 of your current subcontractor certificates, our system will run an audit report highlighting any expired policies, missing endorsements, or coverage deficits at no charge.\n\nOpen to seeing what a 2-minute audit looks like for Keystone Commercial Builders?\n\nBest regards,\n\n[Your Name]\nFounder, SubShield\nsubshield.io | [Your Phone Number]"
+      },
+      "step_2_video_bump": {
+        "subject": "Re: quick question about Keystone Commercial Builders's sub COIs",
+        "body": "Hi David,\n\nFollowing up on my note from Tuesday. \n\nI recorded a 60-second walkthrough showing how our zero-login upload link works for subcontractors (they don't need a password or app):\n\n[Link: 60-Second SubShield Demo Walkthrough]\n\nEven if you're happy with your current spreadsheet process, would you be open to running 5 sample certificates through our engine just to see if any expired policies slip past your filters?\n\nBest,\n\n[Your Name]"
+      },
+      "step_3_breakup": {
+        "subject": "closing the loop regarding Keystone Commercial Builders",
+        "body": "Hi David,\n\nAssuming managing subcontractor certificates isn't a top priority for Keystone Commercial Builders right now.\n\nI put together a 1-page \"GC Subcontractor Insurance Audit Checklist (2026 Edition)\" that lists the top 5 endorsement mistakes auditors penalize contractors for. Happy to send it over if helpful.\n\nIf you ever want to automate your certificate renewals down the road, feel free to reach back out.\n\nBest of luck with your projects across Oakland, CA.\n\nBest,\n\n[Your Name]"
+      }
+    }
+  },
+  {
+    "lead_info": {
+      "company": "Summit Pacific Contracting",
+      "contact": "Elena Rostova",
+      "title": "Operations Manager",
+      "email": "elena@summitpacific.net",
+      "phone": "(408) 773-9901",
+      "city": "San Jose, CA",
+      "trade": "Commercial Interiors",
+      "estimated_subs": 25,
+      "qualification_tier": "Tier 2: Core Growth ($99/mo Target)",
+      "estimated_penalty_exposure": "$21,250"
+    },
+    "sequence": {
+      "step_1_audit_hook": {
+        "subject": "quick question about Summit Pacific Contracting's sub COIs",
+        "body": "Hi Elena,\n\nNoticed Summit Pacific Contracting is running some significant commercial projects across San Jose, CA.\n\nQuick question: who on your team is currently responsible for chasing updated ACORD 25 insurance certificates from your ~25 subcontractors when their policies expire?\n\nMost general contractors I speak with track this in a spreadsheet\u2014which usually works until an insurance auditor hits them with an unexpected $21,250 retroactive penalty for an expired policy or missing Additional Insured endorsement.\n\nI built a lightweight tool called SubShield that completely automates this:\n1. Your subs receive a zero-login magic link to upload their renewal certificate from any phone or computer.\n2. Our AI reads the limits and policy dates in 5 seconds to confirm they meet your exact coverage rules.\n3. Automated reminders chase them 30 days before expiration so your office doesn't have to.\n\nWe're offering a free insurance compliance check for commercial GCs in San Jose, CA. If you send over 5-10 of your current subcontractor certificates, our system will run an audit report highlighting any expired policies, missing endorsements, or coverage deficits at no charge.\n\nOpen to seeing what a 2-minute audit looks like for Summit Pacific Contracting?\n\nBest regards,\n\n[Your Name]\nFounder, SubShield\nsubshield.io | [Your Phone Number]"
+      },
+      "step_2_video_bump": {
+        "subject": "Re: quick question about Summit Pacific Contracting's sub COIs",
+        "body": "Hi Elena,\n\nFollowing up on my note from Tuesday. \n\nI recorded a 60-second walkthrough showing how our zero-login upload link works for subcontractors (they don't need a password or app):\n\n[Link: 60-Second SubShield Demo Walkthrough]\n\nEven if you're happy with your current spreadsheet process, would you be open to running 5 sample certificates through our engine just to see if any expired policies slip past your filters?\n\nBest,\n\n[Your Name]"
+      },
+      "step_3_breakup": {
+        "subject": "closing the loop regarding Summit Pacific Contracting",
+        "body": "Hi Elena,\n\nAssuming managing subcontractor certificates isn't a top priority for Summit Pacific Contracting right now.\n\nI put together a 1-page \"GC Subcontractor Insurance Audit Checklist (2026 Edition)\" that lists the top 5 endorsement mistakes auditors penalize contractors for. Happy to send it over if helpful.\n\nIf you ever want to automate your certificate renewals down the road, feel free to reach back out.\n\nBest of luck with your projects across San Jose, CA.\n\nBest,\n\n[Your Name]"
+      }
+    }
+  },
+  {
+    "lead_info": {
+      "company": "Bayview Construction Management",
+      "contact": "Thomas Miller",
+      "title": "Principal",
+      "email": "tmiller@bayviewcm.com",
+      "phone": "(415) 341-8890",
+      "city": "San Mateo, CA",
+      "trade": "Commercial GC",
+      "estimated_subs": 50,
+      "qualification_tier": "Tier 1: High Priority ($199/mo Pro Target)",
+      "estimated_penalty_exposure": "$42,500"
+    },
+    "sequence": {
+      "step_1_audit_hook": {
+        "subject": "quick question about Bayview Construction Management's sub COIs",
+        "body": "Hi Thomas,\n\nNoticed Bayview Construction Management is running some significant commercial projects across San Mateo, CA.\n\nQuick question: who on your team is currently responsible for chasing updated ACORD 25 insurance certificates from your ~50 subcontractors when their policies expire?\n\nMost general contractors I speak with track this in a spreadsheet\u2014which usually works until an insurance auditor hits them with an unexpected $42,500 retroactive penalty for an expired policy or missing Additional Insured endorsement.\n\nI built a lightweight tool called SubShield that completely automates this:\n1. Your subs receive a zero-login magic link to upload their renewal certificate from any phone or computer.\n2. Our AI reads the limits and policy dates in 5 seconds to confirm they meet your exact coverage rules.\n3. Automated reminders chase them 30 days before expiration so your office doesn't have to.\n\nWe're offering a free insurance compliance check for commercial GCs in San Mateo, CA. If you send over 5-10 of your current subcontractor certificates, our system will run an audit report highlighting any expired policies, missing endorsements, or coverage deficits at no charge.\n\nOpen to seeing what a 2-minute audit looks like for Bayview Construction Management?\n\nBest regards,\n\n[Your Name]\nFounder, SubShield\nsubshield.io | [Your Phone Number]"
+      },
+      "step_2_video_bump": {
+        "subject": "Re: quick question about Bayview Construction Management's sub COIs",
+        "body": "Hi Thomas,\n\nFollowing up on my note from Tuesday. \n\nI recorded a 60-second walkthrough showing how our zero-login upload link works for subcontractors (they don't need a password or app):\n\n[Link: 60-Second SubShield Demo Walkthrough]\n\nEven if you're happy with your current spreadsheet process, would you be open to running 5 sample certificates through our engine just to see if any expired policies slip past your filters?\n\nBest,\n\n[Your Name]"
+      },
+      "step_3_breakup": {
+        "subject": "closing the loop regarding Bayview Construction Management",
+        "body": "Hi Thomas,\n\nAssuming managing subcontractor certificates isn't a top priority for Bayview Construction Management right now.\n\nI put together a 1-page \"GC Subcontractor Insurance Audit Checklist (2026 Edition)\" that lists the top 5 endorsement mistakes auditors penalize contractors for. Happy to send it over if helpful.\n\nIf you ever want to automate your certificate renewals down the road, feel free to reach back out.\n\nBest of luck with your projects across San Mateo, CA.\n\nBest,\n\n[Your Name]"
+      }
+    }
+  },
+  {
+    "lead_info": {
+      "company": "Titan Structural Builders",
+      "contact": "Brett Kowalski",
+      "title": "Managing Partner",
+      "email": "bkowalski@titanstructural.com",
+      "phone": "(925) 441-2009",
+      "city": "Walnut Creek, CA",
+      "trade": "Heavy Commercial",
+      "estimated_subs": 30,
+      "qualification_tier": "Tier 2: Core Growth ($99/mo Target)",
+      "estimated_penalty_exposure": "$25,500"
+    },
+    "sequence": {
+      "step_1_audit_hook": {
+        "subject": "quick question about Titan Structural Builders's sub COIs",
+        "body": "Hi Brett,\n\nNoticed Titan Structural Builders is running some significant commercial projects across Walnut Creek, CA.\n\nQuick question: who on your team is currently responsible for chasing updated ACORD 25 insurance certificates from your ~30 subcontractors when their policies expire?\n\nMost general contractors I speak with track this in a spreadsheet\u2014which usually works until an insurance auditor hits them with an unexpected $25,500 retroactive penalty for an expired policy or missing Additional Insured endorsement.\n\nI built a lightweight tool called SubShield that completely automates this:\n1. Your subs receive a zero-login magic link to upload their renewal certificate from any phone or computer.\n2. Our AI reads the limits and policy dates in 5 seconds to confirm they meet your exact coverage rules.\n3. Automated reminders chase them 30 days before expiration so your office doesn't have to.\n\nWe're offering a free insurance compliance check for commercial GCs in Walnut Creek, CA. If you send over 5-10 of your current subcontractor certificates, our system will run an audit report highlighting any expired policies, missing endorsements, or coverage deficits at no charge.\n\nOpen to seeing what a 2-minute audit looks like for Titan Structural Builders?\n\nBest regards,\n\n[Your Name]\nFounder, SubShield\nsubshield.io | [Your Phone Number]"
+      },
+      "step_2_video_bump": {
+        "subject": "Re: quick question about Titan Structural Builders's sub COIs",
+        "body": "Hi Brett,\n\nFollowing up on my note from Tuesday. \n\nI recorded a 60-second walkthrough showing how our zero-login upload link works for subcontractors (they don't need a password or app):\n\n[Link: 60-Second SubShield Demo Walkthrough]\n\nEven if you're happy with your current spreadsheet process, would you be open to running 5 sample certificates through our engine just to see if any expired policies slip past your filters?\n\nBest,\n\n[Your Name]"
+      },
+      "step_3_breakup": {
+        "subject": "closing the loop regarding Titan Structural Builders",
+        "body": "Hi Brett,\n\nAssuming managing subcontractor certificates isn't a top priority for Titan Structural Builders right now.\n\nI put together a 1-page \"GC Subcontractor Insurance Audit Checklist (2026 Edition)\" that lists the top 5 endorsement mistakes auditors penalize contractors for. Happy to send it over if helpful.\n\nIf you ever want to automate your certificate renewals down the road, feel free to reach back out.\n\nBest of luck with your projects across Walnut Creek, CA.\n\nBest,\n\n[Your Name]"
+      }
+    }
+  },
+  {
+    "lead_info": {
+      "company": "Sierra Horizon Contractors",
+      "contact": "Carlos Mendez",
+      "title": "Risk & Compliance Officer",
+      "email": "carlos@sierrahorizon.com",
+      "phone": "(916) 554-1102",
+      "city": "Sacramento, CA",
+      "trade": "Commercial & Framing",
+      "estimated_subs": 45,
+      "qualification_tier": "Tier 1: High Priority ($199/mo Pro Target)",
+      "estimated_penalty_exposure": "$38,250"
+    },
+    "sequence": {
+      "step_1_audit_hook": {
+        "subject": "quick question about Sierra Horizon Contractors's sub COIs",
+        "body": "Hi Carlos,\n\nNoticed Sierra Horizon Contractors is running some significant commercial projects across Sacramento, CA.\n\nQuick question: who on your team is currently responsible for chasing updated ACORD 25 insurance certificates from your ~45 subcontractors when their policies expire?\n\nMost general contractors I speak with track this in a spreadsheet\u2014which usually works until an insurance auditor hits them with an unexpected $38,250 retroactive penalty for an expired policy or missing Additional Insured endorsement.\n\nI built a lightweight tool called SubShield that completely automates this:\n1. Your subs receive a zero-login magic link to upload their renewal certificate from any phone or computer.\n2. Our AI reads the limits and policy dates in 5 seconds to confirm they meet your exact coverage rules.\n3. Automated reminders chase them 30 days before expiration so your office doesn't have to.\n\nWe're offering a free insurance compliance check for commercial GCs in Sacramento, CA. If you send over 5-10 of your current subcontractor certificates, our system will run an audit report highlighting any expired policies, missing endorsements, or coverage deficits at no charge.\n\nOpen to seeing what a 2-minute audit looks like for Sierra Horizon Contractors?\n\nBest regards,\n\n[Your Name]\nFounder, SubShield\nsubshield.io | [Your Phone Number]"
+      },
+      "step_2_video_bump": {
+        "subject": "Re: quick question about Sierra Horizon Contractors's sub COIs",
+        "body": "Hi Carlos,\n\nFollowing up on my note from Tuesday. \n\nI recorded a 60-second walkthrough showing how our zero-login upload link works for subcontractors (they don't need a password or app):\n\n[Link: 60-Second SubShield Demo Walkthrough]\n\nEven if you're happy with your current spreadsheet process, would you be open to running 5 sample certificates through our engine just to see if any expired policies slip past your filters?\n\nBest,\n\n[Your Name]"
+      },
+      "step_3_breakup": {
+        "subject": "closing the loop regarding Sierra Horizon Contractors",
+        "body": "Hi Carlos,\n\nAssuming managing subcontractor certificates isn't a top priority for Sierra Horizon Contractors right now.\n\nI put together a 1-page \"GC Subcontractor Insurance Audit Checklist (2026 Edition)\" that lists the top 5 endorsement mistakes auditors penalize contractors for. Happy to send it over if helpful.\n\nIf you ever want to automate your certificate renewals down the road, feel free to reach back out.\n\nBest of luck with your projects across Sacramento, CA.\n\nBest,\n\n[Your Name]"
+      }
+    }
+  },
+  {
+    "lead_info": {
+      "company": "Precision Builders & Remodeling",
+      "contact": "Arthur Pendelton",
+      "title": "Owner",
+      "email": "arthur@precisionbuilders.net",
+      "phone": "(650) 443-8891",
+      "city": "Redwood City, CA",
+      "trade": "Custom Commercial",
+      "estimated_subs": 20,
+      "qualification_tier": "Tier 2: Core Growth ($99/mo Target)",
+      "estimated_penalty_exposure": "$17,000"
+    },
+    "sequence": {
+      "step_1_audit_hook": {
+        "subject": "quick question about Precision Builders & Remodeling's sub COIs",
+        "body": "Hi Arthur,\n\nNoticed Precision Builders & Remodeling is running some significant commercial projects across Redwood City, CA.\n\nQuick question: who on your team is currently responsible for chasing updated ACORD 25 insurance certificates from your ~20 subcontractors when their policies expire?\n\nMost general contractors I speak with track this in a spreadsheet\u2014which usually works until an insurance auditor hits them with an unexpected $17,000 retroactive penalty for an expired policy or missing Additional Insured endorsement.\n\nI built a lightweight tool called SubShield that completely automates this:\n1. Your subs receive a zero-login magic link to upload their renewal certificate from any phone or computer.\n2. Our AI reads the limits and policy dates in 5 seconds to confirm they meet your exact coverage rules.\n3. Automated reminders chase them 30 days before expiration so your office doesn't have to.\n\nWe're offering a free insurance compliance check for commercial GCs in Redwood City, CA. If you send over 5-10 of your current subcontractor certificates, our system will run an audit report highlighting any expired policies, missing endorsements, or coverage deficits at no charge.\n\nOpen to seeing what a 2-minute audit looks like for Precision Builders & Remodeling?\n\nBest regards,\n\n[Your Name]\nFounder, SubShield\nsubshield.io | [Your Phone Number]"
+      },
+      "step_2_video_bump": {
+        "subject": "Re: quick question about Precision Builders & Remodeling's sub COIs",
+        "body": "Hi Arthur,\n\nFollowing up on my note from Tuesday. \n\nI recorded a 60-second walkthrough showing how our zero-login upload link works for subcontractors (they don't need a password or app):\n\n[Link: 60-Second SubShield Demo Walkthrough]\n\nEven if you're happy with your current spreadsheet process, would you be open to running 5 sample certificates through our engine just to see if any expired policies slip past your filters?\n\nBest,\n\n[Your Name]"
+      },
+      "step_3_breakup": {
+        "subject": "closing the loop regarding Precision Builders & Remodeling",
+        "body": "Hi Arthur,\n\nAssuming managing subcontractor certificates isn't a top priority for Precision Builders & Remodeling right now.\n\nI put together a 1-page \"GC Subcontractor Insurance Audit Checklist (2026 Edition)\" that lists the top 5 endorsement mistakes auditors penalize contractors for. Happy to send it over if helpful.\n\nIf you ever want to automate your certificate renewals down the road, feel free to reach back out.\n\nBest of luck with your projects across Redwood City, CA.\n\nBest,\n\n[Your Name]"
+      }
+    }
+  },
+  {
+    "lead_info": {
+      "company": "Pacific Crest Development Co.",
+      "contact": "Jennifer Hayes",
+      "title": "VP Construction",
+      "email": "jhayes@pacificcrestdev.com",
+      "phone": "(415) 601-3342",
+      "city": "San Rafael, CA",
+      "trade": "General Contractor",
+      "estimated_subs": 60,
+      "qualification_tier": "Tier 1: High Priority ($199/mo Pro Target)",
+      "estimated_penalty_exposure": "$51,000"
+    },
+    "sequence": {
+      "step_1_audit_hook": {
+        "subject": "quick question about Pacific Crest Development Co.'s sub COIs",
+        "body": "Hi Jennifer,\n\nNoticed Pacific Crest Development Co. is running some significant commercial projects across San Rafael, CA.\n\nQuick question: who on your team is currently responsible for chasing updated ACORD 25 insurance certificates from your ~60 subcontractors when their policies expire?\n\nMost general contractors I speak with track this in a spreadsheet\u2014which usually works until an insurance auditor hits them with an unexpected $51,000 retroactive penalty for an expired policy or missing Additional Insured endorsement.\n\nI built a lightweight tool called SubShield that completely automates this:\n1. Your subs receive a zero-login magic link to upload their renewal certificate from any phone or computer.\n2. Our AI reads the limits and policy dates in 5 seconds to confirm they meet your exact coverage rules.\n3. Automated reminders chase them 30 days before expiration so your office doesn't have to.\n\nWe're offering a free insurance compliance check for commercial GCs in San Rafael, CA. If you send over 5-10 of your current subcontractor certificates, our system will run an audit report highlighting any expired policies, missing endorsements, or coverage deficits at no charge.\n\nOpen to seeing what a 2-minute audit looks like for Pacific Crest Development Co.?\n\nBest regards,\n\n[Your Name]\nFounder, SubShield\nsubshield.io | [Your Phone Number]"
+      },
+      "step_2_video_bump": {
+        "subject": "Re: quick question about Pacific Crest Development Co.'s sub COIs",
+        "body": "Hi Jennifer,\n\nFollowing up on my note from Tuesday. \n\nI recorded a 60-second walkthrough showing how our zero-login upload link works for subcontractors (they don't need a password or app):\n\n[Link: 60-Second SubShield Demo Walkthrough]\n\nEven if you're happy with your current spreadsheet process, would you be open to running 5 sample certificates through our engine just to see if any expired policies slip past your filters?\n\nBest,\n\n[Your Name]"
+      },
+      "step_3_breakup": {
+        "subject": "closing the loop regarding Pacific Crest Development Co.",
+        "body": "Hi Jennifer,\n\nAssuming managing subcontractor certificates isn't a top priority for Pacific Crest Development Co. right now.\n\nI put together a 1-page \"GC Subcontractor Insurance Audit Checklist (2026 Edition)\" that lists the top 5 endorsement mistakes auditors penalize contractors for. Happy to send it over if helpful.\n\nIf you ever want to automate your certificate renewals down the road, feel free to reach back out.\n\nBest of luck with your projects across San Rafael, CA.\n\nBest,\n\n[Your Name]"
+      }
+    }
+  },
+  {
+    "lead_info": {
+      "company": "Vanguard Commercial Trades",
+      "contact": "Robert Hughes",
+      "title": "General Manager",
+      "email": "rhughes@vanguardtrades.com",
+      "phone": "(408) 229-4501",
+      "city": "Sunnyvale, CA",
+      "trade": "Commercial GC",
+      "estimated_subs": 35,
+      "qualification_tier": "Tier 1: High Priority ($199/mo Pro Target)",
+      "estimated_penalty_exposure": "$29,750"
+    },
+    "sequence": {
+      "step_1_audit_hook": {
+        "subject": "quick question about Vanguard Commercial Trades's sub COIs",
+        "body": "Hi Robert,\n\nNoticed Vanguard Commercial Trades is running some significant commercial projects across Sunnyvale, CA.\n\nQuick question: who on your team is currently responsible for chasing updated ACORD 25 insurance certificates from your ~35 subcontractors when their policies expire?\n\nMost general contractors I speak with track this in a spreadsheet\u2014which usually works until an insurance auditor hits them with an unexpected $29,750 retroactive penalty for an expired policy or missing Additional Insured endorsement.\n\nI built a lightweight tool called SubShield that completely automates this:\n1. Your subs receive a zero-login magic link to upload their renewal certificate from any phone or computer.\n2. Our AI reads the limits and policy dates in 5 seconds to confirm they meet your exact coverage rules.\n3. Automated reminders chase them 30 days before expiration so your office doesn't have to.\n\nWe're offering a free insurance compliance check for commercial GCs in Sunnyvale, CA. If you send over 5-10 of your current subcontractor certificates, our system will run an audit report highlighting any expired policies, missing endorsements, or coverage deficits at no charge.\n\nOpen to seeing what a 2-minute audit looks like for Vanguard Commercial Trades?\n\nBest regards,\n\n[Your Name]\nFounder, SubShield\nsubshield.io | [Your Phone Number]"
+      },
+      "step_2_video_bump": {
+        "subject": "Re: quick question about Vanguard Commercial Trades's sub COIs",
+        "body": "Hi Robert,\n\nFollowing up on my note from Tuesday. \n\nI recorded a 60-second walkthrough showing how our zero-login upload link works for subcontractors (they don't need a password or app):\n\n[Link: 60-Second SubShield Demo Walkthrough]\n\nEven if you're happy with your current spreadsheet process, would you be open to running 5 sample certificates through our engine just to see if any expired policies slip past your filters?\n\nBest,\n\n[Your Name]"
+      },
+      "step_3_breakup": {
+        "subject": "closing the loop regarding Vanguard Commercial Trades",
+        "body": "Hi Robert,\n\nAssuming managing subcontractor certificates isn't a top priority for Vanguard Commercial Trades right now.\n\nI put together a 1-page \"GC Subcontractor Insurance Audit Checklist (2026 Edition)\" that lists the top 5 endorsement mistakes auditors penalize contractors for. Happy to send it over if helpful.\n\nIf you ever want to automate your certificate renewals down the road, feel free to reach back out.\n\nBest of luck with your projects across Sunnyvale, CA.\n\nBest,\n\n[Your Name]"
+      }
+    }
+  },
+  {
+    "lead_info": {
+      "company": "Northgate Contracting Group",
+      "contact": "Kevin Gallagher",
+      "title": "Operations Director",
+      "email": "kgallagher@northgategroup.com",
+      "phone": "(510) 332-9018",
+      "city": "Berkeley, CA",
+      "trade": "Commercial Renovation",
+      "estimated_subs": 25,
+      "qualification_tier": "Tier 2: Core Growth ($99/mo Target)",
+      "estimated_penalty_exposure": "$21,250"
+    },
+    "sequence": {
+      "step_1_audit_hook": {
+        "subject": "quick question about Northgate Contracting Group's sub COIs",
+        "body": "Hi Kevin,\n\nNoticed Northgate Contracting Group is running some significant commercial projects across Berkeley, CA.\n\nQuick question: who on your team is currently responsible for chasing updated ACORD 25 insurance certificates from your ~25 subcontractors when their policies expire?\n\nMost general contractors I speak with track this in a spreadsheet\u2014which usually works until an insurance auditor hits them with an unexpected $21,250 retroactive penalty for an expired policy or missing Additional Insured endorsement.\n\nI built a lightweight tool called SubShield that completely automates this:\n1. Your subs receive a zero-login magic link to upload their renewal certificate from any phone or computer.\n2. Our AI reads the limits and policy dates in 5 seconds to confirm they meet your exact coverage rules.\n3. Automated reminders chase them 30 days before expiration so your office doesn't have to.\n\nWe're offering a free insurance compliance check for commercial GCs in Berkeley, CA. If you send over 5-10 of your current subcontractor certificates, our system will run an audit report highlighting any expired policies, missing endorsements, or coverage deficits at no charge.\n\nOpen to seeing what a 2-minute audit looks like for Northgate Contracting Group?\n\nBest regards,\n\n[Your Name]\nFounder, SubShield\nsubshield.io | [Your Phone Number]"
+      },
+      "step_2_video_bump": {
+        "subject": "Re: quick question about Northgate Contracting Group's sub COIs",
+        "body": "Hi Kevin,\n\nFollowing up on my note from Tuesday. \n\nI recorded a 60-second walkthrough showing how our zero-login upload link works for subcontractors (they don't need a password or app):\n\n[Link: 60-Second SubShield Demo Walkthrough]\n\nEven if you're happy with your current spreadsheet process, would you be open to running 5 sample certificates through our engine just to see if any expired policies slip past your filters?\n\nBest,\n\n[Your Name]"
+      },
+      "step_3_breakup": {
+        "subject": "closing the loop regarding Northgate Contracting Group",
+        "body": "Hi Kevin,\n\nAssuming managing subcontractor certificates isn't a top priority for Northgate Contracting Group right now.\n\nI put together a 1-page \"GC Subcontractor Insurance Audit Checklist (2026 Edition)\" that lists the top 5 endorsement mistakes auditors penalize contractors for. Happy to send it over if helpful.\n\nIf you ever want to automate your certificate renewals down the road, feel free to reach back out.\n\nBest of luck with your projects across Berkeley, CA.\n\nBest,\n\n[Your Name]"
+      }
+    }
+  },
+  {
+    "lead_info": {
+      "company": "Golden State Builders LLC",
+      "contact": "Michael Chang",
+      "title": "President",
+      "email": "mchang@goldenstatebuild.com",
+      "phone": "(415) 890-1123",
+      "city": "San Francisco, CA",
+      "trade": "Commercial GC",
+      "estimated_subs": 45,
+      "qualification_tier": "Tier 1: High Priority ($199/mo Pro Target)",
+      "estimated_penalty_exposure": "$38,250"
+    },
+    "sequence": {
+      "step_1_audit_hook": {
+        "subject": "quick question about Golden State Builders LLC's sub COIs",
+        "body": "Hi Michael,\n\nNoticed Golden State Builders LLC is running some significant commercial projects across San Francisco, CA.\n\nQuick question: who on your team is currently responsible for chasing updated ACORD 25 insurance certificates from your ~45 subcontractors when their policies expire?\n\nMost general contractors I speak with track this in a spreadsheet\u2014which usually works until an insurance auditor hits them with an unexpected $38,250 retroactive penalty for an expired policy or missing Additional Insured endorsement.\n\nI built a lightweight tool called SubShield that completely automates this:\n1. Your subs receive a zero-login magic link to upload their renewal certificate from any phone or computer.\n2. Our AI reads the limits and policy dates in 5 seconds to confirm they meet your exact coverage rules.\n3. Automated reminders chase them 30 days before expiration so your office doesn't have to.\n\nWe're offering a free insurance compliance check for commercial GCs in San Francisco, CA. If you send over 5-10 of your current subcontractor certificates, our system will run an audit report highlighting any expired policies, missing endorsements, or coverage deficits at no charge.\n\nOpen to seeing what a 2-minute audit looks like for Golden State Builders LLC?\n\nBest regards,\n\n[Your Name]\nFounder, SubShield\nsubshield.io | [Your Phone Number]"
+      },
+      "step_2_video_bump": {
+        "subject": "Re: quick question about Golden State Builders LLC's sub COIs",
+        "body": "Hi Michael,\n\nFollowing up on my note from Tuesday. \n\nI recorded a 60-second walkthrough showing how our zero-login upload link works for subcontractors (they don't need a password or app):\n\n[Link: 60-Second SubShield Demo Walkthrough]\n\nEven if you're happy with your current spreadsheet process, would you be open to running 5 sample certificates through our engine just to see if any expired policies slip past your filters?\n\nBest,\n\n[Your Name]"
+      },
+      "step_3_breakup": {
+        "subject": "closing the loop regarding Golden State Builders LLC",
+        "body": "Hi Michael,\n\nAssuming managing subcontractor certificates isn't a top priority for Golden State Builders LLC right now.\n\nI put together a 1-page \"GC Subcontractor Insurance Audit Checklist (2026 Edition)\" that lists the top 5 endorsement mistakes auditors penalize contractors for. Happy to send it over if helpful.\n\nIf you ever want to automate your certificate renewals down the road, feel free to reach back out.\n\nBest of luck with your projects across San Francisco, CA.\n\nBest,\n\n[Your Name]"
+      }
+    }
+  },
+  {
+    "lead_info": {
+      "company": "Ironwood Commercial Contractors",
+      "contact": "Sarah Jenkins",
+      "title": "Office & Compliance Lead",
+      "email": "sjenkins@ironwoodcc.com",
+      "phone": "(925) 301-4456",
+      "city": "Concord, CA",
+      "trade": "Commercial Tenant Improvement",
+      "estimated_subs": 30,
+      "qualification_tier": "Tier 2: Core Growth ($99/mo Target)",
+      "estimated_penalty_exposure": "$25,500"
+    },
+    "sequence": {
+      "step_1_audit_hook": {
+        "subject": "quick question about Ironwood Commercial Contractors's sub COIs",
+        "body": "Hi Sarah,\n\nNoticed Ironwood Commercial Contractors is running some significant commercial projects across Concord, CA.\n\nQuick question: who on your team is currently responsible for chasing updated ACORD 25 insurance certificates from your ~30 subcontractors when their policies expire?\n\nMost general contractors I speak with track this in a spreadsheet\u2014which usually works until an insurance auditor hits them with an unexpected $25,500 retroactive penalty for an expired policy or missing Additional Insured endorsement.\n\nI built a lightweight tool called SubShield that completely automates this:\n1. Your subs receive a zero-login magic link to upload their renewal certificate from any phone or computer.\n2. Our AI reads the limits and policy dates in 5 seconds to confirm they meet your exact coverage rules.\n3. Automated reminders chase them 30 days before expiration so your office doesn't have to.\n\nWe're offering a free insurance compliance check for commercial GCs in Concord, CA. If you send over 5-10 of your current subcontractor certificates, our system will run an audit report highlighting any expired policies, missing endorsements, or coverage deficits at no charge.\n\nOpen to seeing what a 2-minute audit looks like for Ironwood Commercial Contractors?\n\nBest regards,\n\n[Your Name]\nFounder, SubShield\nsubshield.io | [Your Phone Number]"
+      },
+      "step_2_video_bump": {
+        "subject": "Re: quick question about Ironwood Commercial Contractors's sub COIs",
+        "body": "Hi Sarah,\n\nFollowing up on my note from Tuesday. \n\nI recorded a 60-second walkthrough showing how our zero-login upload link works for subcontractors (they don't need a password or app):\n\n[Link: 60-Second SubShield Demo Walkthrough]\n\nEven if you're happy with your current spreadsheet process, would you be open to running 5 sample certificates through our engine just to see if any expired policies slip past your filters?\n\nBest,\n\n[Your Name]"
+      },
+      "step_3_breakup": {
+        "subject": "closing the loop regarding Ironwood Commercial Contractors",
+        "body": "Hi Sarah,\n\nAssuming managing subcontractor certificates isn't a top priority for Ironwood Commercial Contractors right now.\n\nI put together a 1-page \"GC Subcontractor Insurance Audit Checklist (2026 Edition)\" that lists the top 5 endorsement mistakes auditors penalize contractors for. Happy to send it over if helpful.\n\nIf you ever want to automate your certificate renewals down the road, feel free to reach back out.\n\nBest of luck with your projects across Concord, CA.\n\nBest,\n\n[Your Name]"
+      }
+    }
+  },
+  {
+    "lead_info": {
+      "company": "Mission Bay Project Managers",
+      "contact": "Brian O'Connor",
+      "title": "Senior Project Manager",
+      "email": "boconnor@missionbaypm.com",
+      "phone": "(415) 772-9901",
+      "city": "San Francisco, CA",
+      "trade": "Commercial GC",
+      "estimated_subs": 40,
+      "qualification_tier": "Tier 1: High Priority ($199/mo Pro Target)",
+      "estimated_penalty_exposure": "$34,000"
+    },
+    "sequence": {
+      "step_1_audit_hook": {
+        "subject": "quick question about Mission Bay Project Managers's sub COIs",
+        "body": "Hi Brian,\n\nNoticed Mission Bay Project Managers is running some significant commercial projects across San Francisco, CA.\n\nQuick question: who on your team is currently responsible for chasing updated ACORD 25 insurance certificates from your ~40 subcontractors when their policies expire?\n\nMost general contractors I speak with track this in a spreadsheet\u2014which usually works until an insurance auditor hits them with an unexpected $34,000 retroactive penalty for an expired policy or missing Additional Insured endorsement.\n\nI built a lightweight tool called SubShield that completely automates this:\n1. Your subs receive a zero-login magic link to upload their renewal certificate from any phone or computer.\n2. Our AI reads the limits and policy dates in 5 seconds to confirm they meet your exact coverage rules.\n3. Automated reminders chase them 30 days before expiration so your office doesn't have to.\n\nWe're offering a free insurance compliance check for commercial GCs in San Francisco, CA. If you send over 5-10 of your current subcontractor certificates, our system will run an audit report highlighting any expired policies, missing endorsements, or coverage deficits at no charge.\n\nOpen to seeing what a 2-minute audit looks like for Mission Bay Project Managers?\n\nBest regards,\n\n[Your Name]\nFounder, SubShield\nsubshield.io | [Your Phone Number]"
+      },
+      "step_2_video_bump": {
+        "subject": "Re: quick question about Mission Bay Project Managers's sub COIs",
+        "body": "Hi Brian,\n\nFollowing up on my note from Tuesday. \n\nI recorded a 60-second walkthrough showing how our zero-login upload link works for subcontractors (they don't need a password or app):\n\n[Link: 60-Second SubShield Demo Walkthrough]\n\nEven if you're happy with your current spreadsheet process, would you be open to running 5 sample certificates through our engine just to see if any expired policies slip past your filters?\n\nBest,\n\n[Your Name]"
+      },
+      "step_3_breakup": {
+        "subject": "closing the loop regarding Mission Bay Project Managers",
+        "body": "Hi Brian,\n\nAssuming managing subcontractor certificates isn't a top priority for Mission Bay Project Managers right now.\n\nI put together a 1-page \"GC Subcontractor Insurance Audit Checklist (2026 Edition)\" that lists the top 5 endorsement mistakes auditors penalize contractors for. Happy to send it over if helpful.\n\nIf you ever want to automate your certificate renewals down the road, feel free to reach back out.\n\nBest of luck with your projects across San Francisco, CA.\n\nBest,\n\n[Your Name]"
+      }
+    }
+  },
+  {
+    "lead_info": {
+      "company": "Highland Construction Partners",
+      "contact": "Daniel Lewis",
+      "title": "VP Operations",
+      "email": "dlewis@highlandcp.net",
+      "phone": "(408) 661-2290",
+      "city": "Santa Clara, CA",
+      "trade": "General Building",
+      "estimated_subs": 35,
+      "qualification_tier": "Tier 1: High Priority ($199/mo Pro Target)",
+      "estimated_penalty_exposure": "$29,750"
+    },
+    "sequence": {
+      "step_1_audit_hook": {
+        "subject": "quick question about Highland Construction Partners's sub COIs",
+        "body": "Hi Daniel,\n\nNoticed Highland Construction Partners is running some significant commercial projects across Santa Clara, CA.\n\nQuick question: who on your team is currently responsible for chasing updated ACORD 25 insurance certificates from your ~35 subcontractors when their policies expire?\n\nMost general contractors I speak with track this in a spreadsheet\u2014which usually works until an insurance auditor hits them with an unexpected $29,750 retroactive penalty for an expired policy or missing Additional Insured endorsement.\n\nI built a lightweight tool called SubShield that completely automates this:\n1. Your subs receive a zero-login magic link to upload their renewal certificate from any phone or computer.\n2. Our AI reads the limits and policy dates in 5 seconds to confirm they meet your exact coverage rules.\n3. Automated reminders chase them 30 days before expiration so your office doesn't have to.\n\nWe're offering a free insurance compliance check for commercial GCs in Santa Clara, CA. If you send over 5-10 of your current subcontractor certificates, our system will run an audit report highlighting any expired policies, missing endorsements, or coverage deficits at no charge.\n\nOpen to seeing what a 2-minute audit looks like for Highland Construction Partners?\n\nBest regards,\n\n[Your Name]\nFounder, SubShield\nsubshield.io | [Your Phone Number]"
+      },
+      "step_2_video_bump": {
+        "subject": "Re: quick question about Highland Construction Partners's sub COIs",
+        "body": "Hi Daniel,\n\nFollowing up on my note from Tuesday. \n\nI recorded a 60-second walkthrough showing how our zero-login upload link works for subcontractors (they don't need a password or app):\n\n[Link: 60-Second SubShield Demo Walkthrough]\n\nEven if you're happy with your current spreadsheet process, would you be open to running 5 sample certificates through our engine just to see if any expired policies slip past your filters?\n\nBest,\n\n[Your Name]"
+      },
+      "step_3_breakup": {
+        "subject": "closing the loop regarding Highland Construction Partners",
+        "body": "Hi Daniel,\n\nAssuming managing subcontractor certificates isn't a top priority for Highland Construction Partners right now.\n\nI put together a 1-page \"GC Subcontractor Insurance Audit Checklist (2026 Edition)\" that lists the top 5 endorsement mistakes auditors penalize contractors for. Happy to send it over if helpful.\n\nIf you ever want to automate your certificate renewals down the road, feel free to reach back out.\n\nBest of luck with your projects across Santa Clara, CA.\n\nBest,\n\n[Your Name]"
+      }
+    }
+  },
+  {
+    "lead_info": {
+      "company": "Redwood Coast Builders",
+      "contact": "Eric Larson",
+      "title": "Director of Field Services",
+      "email": "elarson@redwoodcoastbuilders.com",
+      "phone": "(707) 819-4450",
+      "city": "Santa Rosa, CA",
+      "trade": "Commercial & Residential GC",
+      "estimated_subs": 25,
+      "qualification_tier": "Tier 2: Core Growth ($99/mo Target)",
+      "estimated_penalty_exposure": "$21,250"
+    },
+    "sequence": {
+      "step_1_audit_hook": {
+        "subject": "quick question about Redwood Coast Builders's sub COIs",
+        "body": "Hi Eric,\n\nNoticed Redwood Coast Builders is running some significant commercial projects across Santa Rosa, CA.\n\nQuick question: who on your team is currently responsible for chasing updated ACORD 25 insurance certificates from your ~25 subcontractors when their policies expire?\n\nMost general contractors I speak with track this in a spreadsheet\u2014which usually works until an insurance auditor hits them with an unexpected $21,250 retroactive penalty for an expired policy or missing Additional Insured endorsement.\n\nI built a lightweight tool called SubShield that completely automates this:\n1. Your subs receive a zero-login magic link to upload their renewal certificate from any phone or computer.\n2. Our AI reads the limits and policy dates in 5 seconds to confirm they meet your exact coverage rules.\n3. Automated reminders chase them 30 days before expiration so your office doesn't have to.\n\nWe're offering a free insurance compliance check for commercial GCs in Santa Rosa, CA. If you send over 5-10 of your current subcontractor certificates, our system will run an audit report highlighting any expired policies, missing endorsements, or coverage deficits at no charge.\n\nOpen to seeing what a 2-minute audit looks like for Redwood Coast Builders?\n\nBest regards,\n\n[Your Name]\nFounder, SubShield\nsubshield.io | [Your Phone Number]"
+      },
+      "step_2_video_bump": {
+        "subject": "Re: quick question about Redwood Coast Builders's sub COIs",
+        "body": "Hi Eric,\n\nFollowing up on my note from Tuesday. \n\nI recorded a 60-second walkthrough showing how our zero-login upload link works for subcontractors (they don't need a password or app):\n\n[Link: 60-Second SubShield Demo Walkthrough]\n\nEven if you're happy with your current spreadsheet process, would you be open to running 5 sample certificates through our engine just to see if any expired policies slip past your filters?\n\nBest,\n\n[Your Name]"
+      },
+      "step_3_breakup": {
+        "subject": "closing the loop regarding Redwood Coast Builders",
+        "body": "Hi Eric,\n\nAssuming managing subcontractor certificates isn't a top priority for Redwood Coast Builders right now.\n\nI put together a 1-page \"GC Subcontractor Insurance Audit Checklist (2026 Edition)\" that lists the top 5 endorsement mistakes auditors penalize contractors for. Happy to send it over if helpful.\n\nIf you ever want to automate your certificate renewals down the road, feel free to reach back out.\n\nBest of luck with your projects across Santa Rosa, CA.\n\nBest,\n\n[Your Name]"
+      }
+    }
+  }
+]

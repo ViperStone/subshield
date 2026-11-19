@@ -1,0 +1,61 @@
+# ---- SubShield · Local Production-Like Stack ----
+# Usage: docker compose up --build
+# This mirrors production (PostgreSQL + Gunicorn), but runs locally.
+# For cloud deploy, use Render (backend) + Supabase (DB) + Vercel (frontend).
+
+version: "3.9"
+
+services:
+  # --- PostgreSQL Database ---
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: subshield
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-subshield_local_2026}
+      POSTGRES_DB: subshield
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U subshield"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # --- FastAPI Backend ---
+  backend:
+    build: ./backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_URL: postgresql://subshield:${DB_PASSWORD:-subshield_local_2026}@db:5432/subshield
+      JWT_SECRET: ${JWT_SECRET:-change_this_to_a_random_64_char_string}
+      ENVIRONMENT: production
+      FRONTEND_URL: ${FRONTEND_URL:-http://localhost:3000}
+      OPENAI_API_KEY: ${OPENAI_API_KEY:-}
+      STRIPE_SECRET_KEY: ${STRIPE_SECRET_KEY:-}
+      STRIPE_WEBHOOK_SECRET: ${STRIPE_WEBHOOK_SECRET:-}
+      STRIPE_PRICE_STARTER: ${STRIPE_PRICE_STARTER:-price_starter_49}
+      STRIPE_PRICE_GROWTH: ${STRIPE_PRICE_GROWTH:-price_growth_99}
+      STRIPE_PRICE_PRO: ${STRIPE_PRICE_PRO:-price_pro_199}
+      RESEND_API_KEY: ${RESEND_API_KEY:-}
+
+  # --- Next.js Frontend (dev mode for local testing) ---
+  frontend:
+    build: ./frontend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    environment:
+      NEXT_PUBLIC_API_URL: http://localhost:8000/api
+
+volumes:
+  pgdata:

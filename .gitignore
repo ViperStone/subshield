@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Environment & secrets
+.env
+.env.local
+.env.production
+
+# Local databases
+*.db
+*.sqlite
+
+# Build artifacts
+.next/
+out/
+dist/
+*.tsbuildinfo
+
+# Logs
+*.log
+logs/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Docker volumes
+pgdata/

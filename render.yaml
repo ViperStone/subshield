@@ -1,0 +1,25 @@
+[build]
+  # Render will auto-detect Dockerfile
+  # These are fallback commands if not using Docker
+
+[env]
+  PYTHON_VERSION = "3.12"
+
+[[services]]
+  type = "web"
+  name = "subshield-api"
+  runtime = "docker"
+  plan = "starter"       # $7/month
+  region = "oregon"       # us-west-2
+  dockerfilePath = "./backend/Dockerfile"
+  dockerContext = "./backend"
+  healthCheckPath = "/health"
+  envVars = [
+    { key = "DATABASE_URL", generateValue = false },
+    { key = "JWT_SECRET", generateValue = true },
+    { key = "ENVIRONMENT", value = "production" },
+    { key = "FRONTEND_URL", generateValue = false },
+    { key = "OPENAI_API_KEY", generateValue = false },
+    { key = "STRIPE_SECRET_KEY", generateValue = false },
+    { key = "STRIPE_WEBHOOK_SECRET", generateValue = false },
+  ]
