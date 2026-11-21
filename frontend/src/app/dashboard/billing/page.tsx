@@ -15,7 +15,7 @@ import {
   AlertCircle
 } from "lucide-react";
 
-export default function BillingPage() {
+function BillingContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const paymentStatus = searchParams?.get("payment");
@@ -306,5 +306,17 @@ export default function BillingPage() {
         </div>
       </main>
     </div>
+  );
+}
+
+export default function BillingPage() {
+  return (
+    <React.Suspense fallback={
+      <div className="min-h-screen bg-slate-950 flex items-center justify-center text-slate-400 text-sm">
+        Loading billing details...
+      </div>
+    }>
+      <BillingContent />
+    </React.Suspense>
   );
 }
