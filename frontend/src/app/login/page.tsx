@@ -1,29 +1,48 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { ShieldCheck, ArrowRight, Lock, Mail, AlertCircle, Sparkles } from "lucide-react";
-import { loginUser, demoLogin } from "../../lib/api";
+import { useRouter, useSearchParams } from "next/navigation";
+import { ShieldCheck, ArrowRight, Lock, Mail, AlertCircle, Sparkles, Building2, User } from "lucide-react";
+import { loginUser, registerUser, demoLogin } from "../../lib/api";
 
-export default function LoginPage() {
+function AuthContent() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const initialMode = searchParams?.get("mode") === "register" ? "register" : "login";
+
+  const [mode, setMode] = useState<"login" | "register">(initialMode);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [companyName, setCompanyName] = useState("");
+  const [fullName, setFullName] = useState("");
   const [loading, setLoading] = useState(false);
   const [demoLoading, setDemoLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
-  const handleLogin = async (e: React.FormEvent) => {
+  useEffect(() => {
+    if (searchParams?.get("mode") === "register") {
+      setMode("register");
+    }
+  }, [searchParams]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
 
     try {
-      await loginUser(email, password);
+      if (mode === "login") {
+        await loginUser(email, password);
+      } else {
+        if (!companyName.trim()) {
+          throw new Error("Company name is required.");
+        }
+        await registerUser(companyName, email, password, fullName);
+      }
       router.push("/dashboard");
     } catch (err: any) {
-      setError(err.message || "Failed to log in.");
+      setError(err.message || "Authentication failed. Please check your details.");
     } finally {
       setLoading(false);
     }
@@ -54,43 +73,41 @@ export default function LoginPage() {
           </span>
         </Link>
         <h2 className="text-2xl font-bold tracking-tight text-white">
-          General Contractor Portal
+          {mode === "login" ? "General Contractor Sign In" : "Start Your 14-Day Free Trial"}
         </h2>
         <p className="mt-1 text-xs text-slate-400">
-          Sign in to manage your subcontractor compliance roster and insurance certificates.
+          {mode === "login"
+            ? "Sign in to manage your subcontractor compliance roster and insurance certificates."
+            : "No credit card required. Full access to automated ACORD 25 verification."}
         </p>
       </div>
 
-      <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+      <div className="mt-6 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="bg-slate-800/80 backdrop-blur-md border border-slate-700 py-8 px-6 shadow-2xl rounded-2xl sm:px-10 space-y-6">
-          {/* Quick Demo Access Button */}
-          <div className="p-4 rounded-xl bg-gradient-to-r from-blue-600/20 to-indigo-600/20 border border-blue-500/40">
-            <div className="flex items-center space-x-2 text-blue-400 text-xs font-semibold uppercase tracking-wider mb-1">
-              <Sparkles className="w-3.5 h-3.5" />
-              <span>Instant Founder & Investor Sandbox</span>
-            </div>
-            <p className="text-xs text-slate-300 mb-3 leading-relaxed">
-              Skip typing. Test the live dashboard seeded with 9 realistic trade subcontractors.
-            </p>
+          {/* Tab Switcher */}
+          <div className="grid grid-cols-2 p-1 bg-slate-900/80 rounded-xl border border-slate-700/60">
             <button
-              onClick={handleDemoLogin}
-              disabled={demoLoading}
-              className="w-full py-2.5 px-4 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-xs font-bold transition-all shadow-md shadow-blue-600/30 flex items-center justify-center space-x-2"
+              type="button"
+              onClick={() => { setMode("login"); setError(null); }}
+              className={`py-2 text-xs font-bold rounded-lg transition-all ${
+                mode === "login"
+                  ? "bg-blue-600 text-white shadow-md shadow-blue-600/30"
+                  : "text-slate-400 hover:text-white"
+              }`}
             >
-              <span>{demoLoading ? "Authenticating..." : "1-Click Live Demo Sign In"}</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              Sign In
             </button>
-          </div>
-
-          <div className="relative">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-slate-700" />
-            </div>
-            <div className="relative flex justify-center text-xs uppercase">
-              <span className="bg-slate-800 px-2 text-slate-500 font-semibold tracking-wider">
-                Or sign in with email
-              </span>
-            </div>
+            <button
+              type="button"
+              onClick={() => { setMode("register"); setError(null); }}
+              className={`py-2 text-xs font-bold rounded-lg transition-all ${
+                mode === "register"
+                  ? "bg-blue-600 text-white shadow-md shadow-blue-600/30"
+                  : "text-slate-400 hover:text-white"
+              }`}
+            >
+              Create Account
+            </button>
           </div>
 
           {error && (
@@ -100,10 +117,51 @@ export default function LoginPage() {
             </div>
           )}
 
-          <form onSubmit={handleLogin} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-4">
+            {mode === "register" && (
+              <>
+                <div>
+                  <label className="block text-xs font-semibold text-slate-300 mb-1">
+                    Company Name <span className="text-blue-400">*</span>
+                  </label>
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-500">
+                      <Building2 className="w-4 h-4" />
+                    </div>
+                    <input
+                      type="text"
+                      required
+                      placeholder="e.g. Apex Building Group LLC"
+                      value={companyName}
+                      onChange={(e) => setCompanyName(e.target.value)}
+                      className="w-full pl-9 pr-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-semibold text-slate-300 mb-1">
+                    Your Name
+                  </label>
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-500">
+                      <User className="w-4 h-4" />
+                    </div>
+                    <input
+                      type="text"
+                      placeholder="e.g. Marcus Vance"
+                      value={fullName}
+                      onChange={(e) => setFullName(e.target.value)}
+                      className="w-full pl-9 pr-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    />
+                  </div>
+                </div>
+              </>
+            )}
+
             <div>
               <label className="block text-xs font-semibold text-slate-300 mb-1">
-                Company Email Address
+                Work Email Address <span className="text-blue-400">*</span>
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-500">
@@ -112,7 +170,7 @@ export default function LoginPage() {
                 <input
                   type="email"
                   required
-                  placeholder="contractor@apexbuilders.com"
+                  placeholder="name@company.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full pl-9 pr-3 py-2 bg-slate-900 border border-slate-700 rounded-lg text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -122,7 +180,7 @@ export default function LoginPage() {
 
             <div>
               <label className="block text-xs font-semibold text-slate-300 mb-1">
-                Password
+                Password <span className="text-blue-400">*</span>
               </label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-500">
@@ -142,20 +200,53 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full py-2.5 px-4 bg-slate-700 hover:bg-slate-600 text-white rounded-lg text-sm font-semibold transition-colors disabled:opacity-50"
+              className="w-full py-2.5 px-4 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-sm font-semibold transition-all shadow-md shadow-blue-600/30 flex items-center justify-center space-x-2 disabled:opacity-50"
             >
-              {loading ? "Signing in..." : "Sign In to SubShield"}
+              <span>
+                {loading
+                  ? mode === "login" ? "Signing in..." : "Creating Account..."
+                  : mode === "login" ? "Sign In to Dashboard" : "Start 14-Day Free Trial"}
+              </span>
+              <ArrowRight className="w-4 h-4" />
             </button>
           </form>
 
-          <p className="text-center text-xs text-slate-500">
-            Need an account?{" "}
-            <Link href="/" className="text-blue-400 hover:underline">
-              Start 14-day free trial
-            </Link>
-          </p>
+          {/* Quick Demo Access Divider */}
+          <div className="relative pt-2">
+            <div className="absolute inset-0 flex items-center">
+              <div className="w-full border-t border-slate-700" />
+            </div>
+            <div className="relative flex justify-center text-xs uppercase">
+              <span className="bg-slate-800 px-2 text-slate-500 font-semibold tracking-wider">
+                Or explore preview
+              </span>
+            </div>
+          </div>
+
+          <div className="p-3.5 rounded-xl bg-slate-900/60 border border-slate-700/80 flex items-center justify-between">
+            <div className="flex items-center space-x-2.5 text-xs text-slate-300">
+              <Sparkles className="w-4 h-4 text-amber-400" />
+              <span>Test with 9 demo subcontractors</span>
+            </div>
+            <button
+              type="button"
+              onClick={handleDemoLogin}
+              disabled={demoLoading}
+              className="py-1.5 px-3 bg-slate-800 hover:bg-slate-700 text-blue-400 hover:text-blue-300 rounded-lg text-xs font-semibold transition-all border border-slate-700"
+            >
+              {demoLoading ? "Opening..." : "Open Demo"}
+            </button>
+          </div>
         </div>
       </div>
     </div>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <React.Suspense fallback={<div className="min-h-screen bg-slate-900 flex items-center justify-center text-slate-400">Loading...</div>}>
+      <AuthContent />
+    </React.Suspense>
   );
 }

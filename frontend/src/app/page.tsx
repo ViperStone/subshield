@@ -14,7 +14,8 @@ import {
   Lock,
   Zap,
   Building2,
-  Users
+  Users,
+  Sparkles
 } from "lucide-react";
 import { demoLogin } from "../lib/api";
 
@@ -48,20 +49,26 @@ export default function LandingPage() {
             </span>
           </div>
 
-          <div className="flex items-center space-x-4">
+          <div className="flex items-center space-x-3">
+            <button
+              onClick={handleDemoAccess}
+              disabled={demoLoading}
+              className="text-xs font-semibold text-slate-400 hover:text-white px-2.5 py-1.5 rounded-lg hover:bg-slate-800 transition-colors"
+            >
+              {demoLoading ? "Opening Demo..." : "Demo Sandbox"}
+            </button>
             <Link
               href="/login"
               className="text-sm font-medium text-slate-300 hover:text-white transition-colors"
             >
               Sign In
             </Link>
-            <button
-              onClick={handleDemoAccess}
-              disabled={demoLoading}
+            <Link
+              href="/login?mode=register"
               className="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white rounded-lg text-sm font-semibold transition-all shadow-lg shadow-blue-500/20"
             >
-              {demoLoading ? "Opening Demo..." : "Launch Live Demo"}
-            </button>
+              Start Free Trial
+            </Link>
           </div>
         </div>
       </header>
@@ -87,20 +94,21 @@ export default function LandingPage() {
         </p>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <Link
+            href="/login?mode=register"
+            className="w-full sm:w-auto px-8 py-3.5 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl text-base shadow-xl shadow-blue-600/30 hover:scale-[1.02] transition-all flex items-center justify-center space-x-2"
+          >
+            <span>Start 14-Day Free Trial</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
           <button
             onClick={handleDemoAccess}
             disabled={demoLoading}
-            className="w-full sm:w-auto px-8 py-3.5 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl text-base shadow-xl shadow-blue-600/30 hover:scale-[1.02] transition-all flex items-center justify-center space-x-2"
+            className="w-full sm:w-auto px-6 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold rounded-xl text-base transition-all border border-slate-700 flex items-center justify-center space-x-2"
           >
-            <span>{demoLoading ? "Loading Sandbox..." : "Explore Live GC Dashboard"}</span>
-            <ArrowRight className="w-4 h-4" />
+            <Sparkles className="w-4 h-4 text-amber-400" />
+            <span>{demoLoading ? "Loading Sandbox..." : "Explore Demo Mode"}</span>
           </button>
-          <Link
-            href="/login"
-            className="w-full sm:w-auto px-6 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold rounded-xl text-base transition-all border border-slate-700"
-          >
-            Create GC Account
-          </Link>
         </div>
 
         {/* Audit Risk Warning Pill */}
@@ -201,10 +209,10 @@ export default function LandingPage() {
               </ul>
             </div>
             <Link
-              href="/login"
+              href="/login?mode=register"
               className="mt-8 block text-center py-2.5 rounded-lg border border-slate-700 font-semibold text-sm hover:bg-slate-800 transition-colors"
             >
-              Start 14-Day Trial
+              Start 14-Day Free Trial
             </Link>
           </div>
 
@@ -239,12 +247,12 @@ export default function LandingPage() {
                 </li>
               </ul>
             </div>
-            <button
-              onClick={handleDemoAccess}
-              className="mt-8 w-full py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm transition-colors shadow-lg shadow-blue-600/30"
+            <Link
+              href="/login?mode=register"
+              className="mt-8 block text-center py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm transition-colors shadow-lg shadow-blue-600/30"
             >
-              Test Growth Plan Demo
-            </button>
+              Start 14-Day Free Trial
+            </Link>
           </div>
 
           {/* Pro */}
@@ -272,10 +280,10 @@ export default function LandingPage() {
               </ul>
             </div>
             <Link
-              href="/login"
+              href="/login?mode=register"
               className="mt-8 block text-center py-2.5 rounded-lg border border-slate-700 font-semibold text-sm hover:bg-slate-800 transition-colors"
             >
-              Contact Sales
+              Start Pro Free Trial
             </Link>
           </div>
         </div>

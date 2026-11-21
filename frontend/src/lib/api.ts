@@ -40,6 +40,30 @@ export async function loginUser(email: string, password: string) {
   return data;
 }
 
+export async function registerUser(companyName: string, email: string, password: string, fullName?: string) {
+  const res = await fetch(`${API_BASE}/auth/register`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      company_name: companyName,
+      email,
+      password,
+      full_name: fullName || companyName
+    })
+  });
+  if (!res.ok) {
+    const err = await res.json().catch(() => ({}));
+    throw new Error(err.detail || "Failed to create account.");
+  }
+  const data = await res.json();
+  if (typeof window !== "undefined") {
+    localStorage.setItem("subshield_token", data.access_token);
+    localStorage.setItem("subshield_org_name", data.company_name);
+    localStorage.setItem("subshield_user_email", data.email);
+  }
+  return data;
+}
+
 export async function fetchDashboardMetrics() {
   const res = await fetch(`${API_BASE}/analytics/dashboard`, {
     headers: { ...getAuthHeaders() }
