@@ -78,6 +78,15 @@ def create_subcontractor(
     db: Session = Depends(get_db),
     user: User = Depends(get_current_user)
 ):
+    # Check 7-day free trial expiration
+    from app.routers.billing import get_org_trial_details
+    trial = get_org_trial_details(user.organization)
+    if trial["is_trial_expired"]:
+        raise HTTPException(
+            status_code=status.HTTP_402_PAYMENT_REQUIRED,
+            detail="Your 7-day free trial has expired. Please activate your subscription plan in Billing to continue adding subcontractors."
+        )
+
     # Check subscription limit
     count = db.query(Subcontractor).filter(Subcontractor.organization_id == user.organization_id).count()
     if count >= user.organization.subcontractor_limit:

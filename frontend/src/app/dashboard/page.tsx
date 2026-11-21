@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
   ShieldCheck,
@@ -16,7 +17,10 @@ import {
   Trash2,
   FileText,
   ExternalLink,
-  RefreshCw
+  RefreshCw,
+  Lock,
+  Zap,
+  ArrowRight
 } from "lucide-react";
 import Navbar from "../../components/Navbar";
 import SubcontractorModal from "../../components/SubcontractorModal";
@@ -24,16 +28,17 @@ import CertificateModal from "../../components/CertificateModal";
 import {
   fetchDashboardMetrics,
   fetchSubcontractors,
+  fetchSubscription,
   deleteSubcontractor,
-  sendRenewalReminder,
-  demoLogin
+  sendRenewalReminder
 } from "../../lib/api";
-import { Subcontractor, DashboardMetrics } from "../../lib/types";
+import { Subcontractor, DashboardMetrics, SubscriptionInfo } from "../../lib/types";
 
 export default function DashboardPage() {
   const router = useRouter();
   const [metrics, setMetrics] = useState<DashboardMetrics | null>(null);
   const [subcontractors, setSubcontractors] = useState<Subcontractor[]>([]);
+  const [subscription, setSubscription] = useState<SubscriptionInfo | null>(null);
   const [loading, setLoading] = useState(true);
   const [statusFilter, setStatusFilter] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
@@ -45,25 +50,23 @@ export default function DashboardPage() {
   const [selectedSubForCert, setSelectedSubForCert] = useState<Subcontractor | null>(null);
 
   const loadData = async () => {
+    if (typeof window !== "undefined" && !localStorage.getItem("subshield_token")) {
+      router.push("/login");
+      return;
+    }
+
     try {
       setLoading(true);
-      const [m, s] = await Promise.all([
+      const [m, s, subInfo] = await Promise.all([
         fetchDashboardMetrics(),
-        fetchSubcontractors(statusFilter, searchQuery)
+        fetchSubcontractors(statusFilter, searchQuery),
+        fetchSubscription().catch(() => null)
       ]);
       setMetrics(m);
       setSubcontractors(s);
-    } catch (err) {
-      // If unauthorized, auto-log into demo account for immediate seamless preview
-      try {
-        await demoLogin();
-        const [m, s] = await Promise.all([
-          fetchDashboardMetrics(),
-          fetchSubcontractors(statusFilter, searchQuery)
-        ]);
-        setMetrics(m);
-        setSubcontractors(s);
-      } catch (e) {
+      if (subInfo) setSubscription(subInfo);
+    } catch (err: any) {
+      if (typeof window !== "undefined" && !localStorage.getItem("subshield_token")) {
         router.push("/login");
       }
     } finally {
@@ -108,34 +111,136 @@ export default function DashboardPage() {
       <Navbar />
 
       <main className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 flex-1">
-        {/* Top Header */}
-        <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
-          <div>
-            <h1 className="text-2xl font-bold tracking-tight text-slate-900">
-              Subcontractor Compliance Roster
-            </h1>
-            <p className="text-xs text-slate-500 mt-1">
-              Real-time monitoring of insurance certificates, policy expiration radar, and jobsite clearance.
+        {subscription?.is_trial_expired ? (
+          <div className="max-w-4xl mx-auto py-12 text-center">
+            <div className="w-16 h-16 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-600 flex items-center justify-center mx-auto mb-6 shadow-lg shadow-amber-500/10">
+              <Lock className="w-8 h-8" />
+            </div>
+            <h2 className="text-3xl font-extrabold text-slate-900 tracking-tight">
+              Your 7-Day Free Trial Has Ended
+            </h2>
+            <p className="mt-3 text-sm sm:text-base text-slate-600 max-w-lg mx-auto">
+              Your trial period has concluded. Activate a subscription plan below to unlock your subcontractor roster, automate ACORD 25 verification, and maintain continuous compliance protection.
             </p>
-          </div>
 
-          <div className="flex items-center space-x-3 w-full sm:w-auto">
-            <button
-              onClick={() => loadData()}
-              className="p-2 border border-slate-200 bg-white hover:bg-slate-50 rounded-lg text-slate-600 shadow-sm"
-              title="Refresh Roster"
-            >
-              <RefreshCw className={`w-4 h-4 ${loading ? "animate-spin" : ""}`} />
-            </button>
-            <button
-              onClick={() => setIsAddModalOpen(true)}
-              className="flex-1 sm:flex-none flex items-center justify-center space-x-2 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-semibold transition-colors shadow-sm"
-            >
-              <Plus className="w-4 h-4" />
-              <span>Add Subcontractor</span>
-            </button>
+            <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-6 text-left">
+              {/* Starter */}
+              <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+                <div>
+                  <h3 className="font-bold text-slate-900 text-lg">Starter</h3>
+                  <p className="text-xs text-slate-500 mt-1">For specialty trade contractors</p>
+                  <div className="my-4">
+                    <span className="text-3xl font-extrabold text-slate-900">$49</span>
+                    <span className="text-xs text-slate-500"> / month</span>
+                  </div>
+                  <p className="text-xs text-slate-600 mb-6">Up to 15 active subcontractors with automated AI certificate reading.</p>
+                </div>
+                <Link
+                  href="/dashboard/billing"
+                  className="block text-center py-2.5 rounded-lg border border-slate-300 font-semibold text-xs text-slate-700 hover:bg-slate-50 transition-colors"
+                >
+                  Choose Starter ($49)
+                </Link>
+              </div>
+
+              {/* Growth */}
+              <div className="bg-white border-2 border-blue-600 rounded-2xl p-6 shadow-lg shadow-blue-600/10 relative flex flex-col justify-between">
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-2.5 py-0.5 bg-blue-600 text-white rounded-full text-[10px] font-bold uppercase tracking-wider">
+                  Recommended
+                </div>
+                <div>
+                  <h3 className="font-bold text-slate-900 text-lg">Growth</h3>
+                  <p className="text-xs text-blue-600 font-medium mt-1">For commercial & residential GCs</p>
+                  <div className="my-4">
+                    <span className="text-3xl font-extrabold text-slate-900">$99</span>
+                    <span className="text-xs text-slate-500"> / month</span>
+                  </div>
+                  <p className="text-xs text-slate-600 mb-6">Up to 50 active subcontractors with custom rules, alerts & audit exports.</p>
+                </div>
+                <Link
+                  href="/dashboard/billing"
+                  className="block text-center py-2.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs shadow-md shadow-blue-600/20 transition-all"
+                >
+                  Activate Growth Plan ($99)
+                </Link>
+              </div>
+
+              {/* Pro */}
+              <div className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col justify-between">
+                <div>
+                  <h3 className="font-bold text-slate-900 text-lg">Commercial Pro</h3>
+                  <p className="text-xs text-slate-500 mt-1">For multi-project builders</p>
+                  <div className="my-4">
+                    <span className="text-3xl font-extrabold text-slate-900">$199</span>
+                    <span className="text-xs text-slate-500"> / month</span>
+                  </div>
+                  <p className="text-xs text-slate-600 mb-6">Up to 150 active subcontractors with unlimited seats & dedicated support.</p>
+                </div>
+                <Link
+                  href="/dashboard/billing"
+                  className="block text-center py-2.5 rounded-lg border border-slate-300 font-semibold text-xs text-slate-700 hover:bg-slate-50 transition-colors"
+                >
+                  Choose Commercial Pro ($199)
+                </Link>
+              </div>
+            </div>
           </div>
-        </div>
+        ) : (
+          <>
+            {/* 7-Day Active Trial Countdown Banner */}
+            {subscription?.status === "trialing" && (
+              <div className="mb-6 p-4 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                <div className="flex items-center space-x-3">
+                  <div className="w-8 h-8 rounded-lg bg-white/20 backdrop-blur-sm flex items-center justify-center font-bold">
+                    <Zap className="w-4 h-4 text-amber-300" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-bold">
+                      7-Day Free Trial: {subscription.trial_days_remaining} day{subscription.trial_days_remaining > 1 ? "s" : ""} remaining
+                    </p>
+                    <p className="text-xs text-blue-100">
+                      Full access to automated AI certificate reading and subcontractor magic links.
+                    </p>
+                  </div>
+                </div>
+                <Link
+                  href="/dashboard/billing"
+                  className="px-4 py-2 bg-white text-blue-600 hover:bg-blue-50 rounded-lg text-xs font-bold transition-all shadow-sm flex items-center space-x-1.5 flex-shrink-0"
+                >
+                  <span>Activate Full Subscription</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </Link>
+              </div>
+            )}
+
+            {/* Top Header */}
+            <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
+              <div>
+                <h1 className="text-2xl font-bold tracking-tight text-slate-900">
+                  Subcontractor Compliance Roster
+                </h1>
+                <p className="text-xs text-slate-500 mt-1">
+                  Real-time monitoring of insurance certificates, policy expiration radar, and jobsite clearance.
+                </p>
+              </div>
+
+              <div className="flex items-center space-x-3 w-full sm:w-auto">
+                <button
+                  onClick={() => loadData()}
+                  className="p-2 border border-slate-200 bg-white hover:bg-slate-50 rounded-lg text-slate-600 shadow-sm"
+                  title="Refresh Roster"
+                >
+                  <RefreshCw className={`w-4 h-4 ${loading ? "animate-spin" : ""}`} />
+                </button>
+                <button
+                  onClick={() => setIsAddModalOpen(true)}
+                  className="flex-1 sm:flex-none flex items-center justify-center space-x-2 px-4 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm font-semibold transition-colors shadow-sm"
+                >
+                  <Plus className="w-4 h-4" />
+                  <span>Add Subcontractor</span>
+                </button>
+              </div>
+            </div>
 
         {/* KPI Metrics Cards */}
         {metrics && (
@@ -369,7 +474,9 @@ export default function DashboardPage() {
             </table>
           </div>
         </div>
-      </main>
+      </>
+    )}
+  </main>
 
       {/* Modals */}
       <SubcontractorModal

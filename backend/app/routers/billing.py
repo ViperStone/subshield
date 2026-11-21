@@ -17,6 +17,40 @@ PLAN_LIMITS = {
     "pro": 150
 }
 
+from datetime import datetime, timedelta
+
+def get_org_trial_details(org: Organization) -> Dict[str, Any]:
+    """Calculate 7-day trial status and remaining days."""
+    is_active = org.subscription_status in ("active", "paid")
+    if is_active:
+        return {
+            "status": "active",
+            "is_trial_expired": False,
+            "trial_days_remaining": 0,
+            "trial_ends_at": None
+        }
+
+    created_at = org.created_at or datetime.utcnow()
+    trial_ends_at = created_at + timedelta(days=7)
+    now = datetime.utcnow()
+
+    if now >= trial_ends_at:
+        return {
+            "status": "trial_expired",
+            "is_trial_expired": True,
+            "trial_days_remaining": 0,
+            "trial_ends_at": trial_ends_at.isoformat()
+        }
+    else:
+        diff = trial_ends_at - now
+        days_left = max(1, diff.days + (1 if diff.seconds > 0 else 0))
+        return {
+            "status": "trialing",
+            "is_trial_expired": False,
+            "trial_days_remaining": days_left,
+            "trial_ends_at": trial_ends_at.isoformat()
+        }
+
 class CreateCheckoutRequest(BaseModel):
     plan: str # "starter", "growth", "pro"
 
@@ -28,6 +62,9 @@ class SubscriptionInfoResponse(BaseModel):
     usage_percentage: float
     stripe_customer_id: Optional[str]
     can_add_more: bool
+    is_trial_expired: bool = False
+    trial_days_remaining: int = 7
+    trial_ends_at: Optional[str] = None
 
 @router.get("/subscription", response_model=SubscriptionInfoResponse)
 def get_subscription_info(
@@ -39,14 +76,20 @@ def get_subscription_info(
     limit = org.subcontractor_limit or 50
     pct = round((current_count / limit * 100.0), 1) if limit > 0 else 0.0
 
+    trial_details = get_org_trial_details(org)
+    effective_status = trial_details["status"]
+
     return SubscriptionInfoResponse(
         plan=org.subscription_plan or "growth",
-        status=org.subscription_status or "active",
+        status=effective_status,
         subcontractor_limit=limit,
         current_subcontractors_count=current_count,
         usage_percentage=pct,
         stripe_customer_id=org.stripe_customer_id,
-        can_add_more=current_count < limit
+        can_add_more=current_count < limit and not trial_details["is_trial_expired"],
+        is_trial_expired=trial_details["is_trial_expired"],
+        trial_days_remaining=trial_details["trial_days_remaining"],
+        trial_ends_at=trial_details["trial_ends_at"]
     )
 
 @router.post("/create-checkout-session")

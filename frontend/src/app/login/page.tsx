@@ -73,7 +73,7 @@ function AuthContent() {
           </span>
         </Link>
         <h2 className="text-2xl font-bold tracking-tight text-white">
-          {mode === "login" ? "General Contractor Sign In" : "Start Your 14-Day Free Trial"}
+          {mode === "login" ? "General Contractor Sign In" : "Start Your 7-Day Free Trial"}
         </h2>
         <p className="mt-1 text-xs text-slate-400">
           {mode === "login"
@@ -205,7 +205,7 @@ function AuthContent() {
               <span>
                 {loading
                   ? mode === "login" ? "Signing in..." : "Creating Account..."
-                  : mode === "login" ? "Sign In to Dashboard" : "Start 14-Day Free Trial"}
+                  : mode === "login" ? "Sign In to Dashboard" : "Start 7-Day Free Trial"}
               </span>
               <ArrowRight className="w-4 h-4" />
             </button>

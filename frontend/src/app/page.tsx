@@ -98,7 +98,7 @@ export default function LandingPage() {
             href="/login?mode=register"
             className="w-full sm:w-auto px-8 py-3.5 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-xl text-base shadow-xl shadow-blue-600/30 hover:scale-[1.02] transition-all flex items-center justify-center space-x-2"
           >
-            <span>Start 14-Day Free Trial</span>
+            <span>Start 7-Day Free Trial</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
           <button
@@ -212,7 +212,7 @@ export default function LandingPage() {
               href="/login?mode=register"
               className="mt-8 block text-center py-2.5 rounded-lg border border-slate-700 font-semibold text-sm hover:bg-slate-800 transition-colors"
             >
-              Start 14-Day Free Trial
+              Start 7-Day Free Trial
             </Link>
           </div>
 
@@ -251,7 +251,7 @@ export default function LandingPage() {
               href="/login?mode=register"
               className="mt-8 block text-center py-2.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm transition-colors shadow-lg shadow-blue-600/30"
             >
-              Start 14-Day Free Trial
+              Start 7-Day Free Trial
             </Link>
           </div>
 

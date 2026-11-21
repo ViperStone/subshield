@@ -81,3 +81,16 @@ export interface UploadResult {
   additional_insured: boolean;
   message: string;
 }
+
+export interface SubscriptionInfo {
+  plan: string;
+  status: string;
+  subcontractor_limit: number;
+  current_subcontractors_count: number;
+  usage_percentage: number;
+  stripe_customer_id: string | null;
+  can_add_more: boolean;
+  is_trial_expired: boolean;
+  trial_days_remaining: number;
+  trial_ends_at: string | null;
+}
