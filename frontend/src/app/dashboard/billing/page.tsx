@@ -286,18 +286,31 @@ function BillingContent() {
                       Active Plan
                     </button>
                   ) : (
-                    <button
-                      onClick={() => handleSelectPlan(p.key)}
-                      disabled={upgradingPlan === p.key}
-                      className={`w-full py-2.5 rounded-lg text-xs font-semibold transition-all flex items-center justify-center space-x-1.5 shadow-sm ${
-                        p.popular
-                          ? "bg-blue-600 hover:bg-blue-700 text-white shadow-blue-600/20"
-                          : "bg-slate-900 hover:bg-slate-800 text-white"
-                      }`}
-                    >
-                      <span>{upgradingPlan === p.key ? "Redirecting to Stripe..." : `Switch to ${p.name}`}</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </button>
+                    <>
+                      <button
+                        onClick={() => handleSelectPlan(p.key)}
+                        disabled={upgradingPlan === p.key}
+                        className={`w-full py-2.5 rounded-lg text-xs font-semibold transition-all flex items-center justify-center space-x-1.5 shadow-sm ${
+                          p.popular
+                            ? "bg-blue-600 hover:bg-blue-700 text-white shadow-blue-600/20"
+                            : "bg-slate-900 hover:bg-slate-800 text-white"
+                        }`}
+                      >
+                        <span>
+                          {upgradingPlan === p.key
+                            ? "Redirecting to Stripe..."
+                            : subscription?.is_trial_expired
+                            ? `Activate ${p.name}`
+                            : `Start 7-Day Free Trial ($0 today)`}
+                        </span>
+                        <ArrowRight className="w-3.5 h-3.5" />
+                      </button>
+                      <p className="text-[11px] text-slate-400 text-center mt-2">
+                        {subscription?.is_trial_expired
+                          ? `Billed ${p.price}/mo automatically. Cancel anytime.`
+                          : `7 days free, then ${p.price}/mo automatically debited. Cancel anytime.`}
+                      </p>
+                    </>
                   )}
                 </div>
               </div>

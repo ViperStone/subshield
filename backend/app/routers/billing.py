@@ -21,7 +21,7 @@ from datetime import datetime, timedelta
 
 def get_org_trial_details(org: Organization) -> Dict[str, Any]:
     """Calculate 7-day trial status and remaining days."""
-    is_active = org.subscription_status in ("active", "paid")
+    is_active = (org.subscription_status in ("active", "paid")) or bool(org.stripe_subscription_id)
     if is_active:
         return {
             "status": "active",
@@ -115,16 +115,31 @@ def create_checkout_session(
             if not price_id:
                 raise HTTPException(status_code=400, detail=f"Price ID for plan '{plan}' is not configured.")
 
-            session = stripe.checkout.Session.create(
-                payment_method_types=["card"],
-                line_items=[{"price": price_id, "quantity": 1}],
-                mode="subscription",
-                customer_email=user.email,
-                client_reference_id=user.organization_id,
-                metadata={"organization_id": user.organization_id, "plan": plan},
-                success_url=f"{settings.FRONTEND_URL}/dashboard/billing?session_id={{CHECKOUT_SESSION_ID}}&payment=success",
-                cancel_url=f"{settings.FRONTEND_URL}/dashboard/billing?payment=canceled",
-            )
+            # Automatically attach 7-day free trial on the card subscription if eligible
+            trial_details = get_org_trial_details(user.organization)
+            trial_days = None
+            if not user.organization.stripe_subscription_id and not trial_details["is_trial_expired"]:
+                trial_days = max(1, trial_details.get("trial_days_remaining", 7))
+
+            checkout_kwargs = {
+                "payment_method_types": ["card"],
+                "line_items": [{"price": price_id, "quantity": 1}],
+                "mode": "subscription",
+                "customer_email": user.email,
+                "client_reference_id": user.organization_id,
+                "metadata": {"organization_id": user.organization_id, "plan": plan},
+                "payment_method_collection": "always",
+                "success_url": f"{settings.FRONTEND_URL}/dashboard/billing?session_id={{CHECKOUT_SESSION_ID}}&payment=success",
+                "cancel_url": f"{settings.FRONTEND_URL}/dashboard/billing?payment=canceled",
+            }
+
+            if trial_days:
+                checkout_kwargs["subscription_data"] = {
+                    "trial_period_days": trial_days,
+                    "metadata": {"organization_id": user.organization_id, "plan": plan}
+                }
+
+            session = stripe.checkout.Session.create(**checkout_kwargs)
             return {"url": session.url, "session_id": session.id, "mode": "stripe"}
         except Exception as e:
             raise HTTPException(status_code=500, detail=f"Stripe error: {str(e)}")
@@ -204,6 +219,16 @@ async def stripe_webhook(
                 org.subcontractor_limit = PLAN_LIMITS.get(plan, 50)
                 org.stripe_customer_id = customer_id
                 org.stripe_subscription_id = subscription_id
+                db.commit()
+
+    elif event_type in ("customer.subscription.updated", "invoice.paid"):
+        sub_id = data_object.get("id") if event_type == "customer.subscription.updated" else data_object.get("subscription")
+        status = data_object.get("status")
+        # When trial concludes and first payment is charged, or on monthly recurring renewals
+        if status in ("active", "trialing"):
+            org = db.query(Organization).filter(Organization.stripe_subscription_id == sub_id).first()
+            if org:
+                org.subscription_status = "active"
                 db.commit()
 
     elif event_type == "customer.subscription.deleted":
