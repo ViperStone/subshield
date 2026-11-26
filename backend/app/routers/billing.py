@@ -133,6 +133,20 @@ def create_checkout_session(
                 "cancel_url": f"{settings.FRONTEND_URL}/dashboard/billing?payment=canceled",
             }
 
+            # Restrict card brand to Visa only if configured
+            if getattr(settings, "STRIPE_RESTRICT_VISA_ONLY", True):
+                checkout_kwargs["payment_method_options"] = {
+                    "card": {
+                        "restrictions": {
+                            "brands_blocked": [
+                                "mastercard",
+                                "american_express",
+                                "discover_global_network"
+                            ]
+                        }
+                    }
+                }
+
             if trial_days:
                 checkout_kwargs["subscription_data"] = {
                     "trial_period_days": trial_days,

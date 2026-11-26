@@ -176,6 +176,30 @@ function BillingContent() {
           </div>
         )}
 
+        {/* Visa Card Payment Assurance Banner */}
+        <div className="mb-8 p-4 bg-gradient-to-r from-blue-900 to-indigo-900 border border-blue-700 rounded-2xl flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-white shadow-lg shadow-blue-950/20">
+          <div className="flex items-center space-x-3.5">
+            <div className="px-3 py-1.5 bg-white text-blue-900 font-black rounded-lg text-xs tracking-wider uppercase shadow-inner flex items-center justify-center">
+              VISA
+            </div>
+            <div>
+              <div className="flex items-center space-x-2">
+                <span className="font-bold text-sm text-white">Visa Card Secured Subscriptions</span>
+                <span className="px-2 py-0.5 bg-blue-500/30 text-blue-200 border border-blue-400/30 rounded text-[10px] font-semibold">
+                  Only Visa Accepted
+                </span>
+              </div>
+              <p className="text-xs text-blue-200/90 mt-0.5">
+                Start your 7-day trial for \$0.00 today. Your Visa card will be automatically debited at the end of day 7. Cancel anytime before without fee.
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center space-x-1.5 text-xs text-blue-200 whitespace-nowrap pl-2 sm:pl-0 border-t sm:border-t-0 border-blue-800 pt-2 sm:pt-0">
+            <ShieldCheck className="w-4 h-4 text-blue-400 flex-shrink-0" />
+            <span>256-bit Encrypted PCI-DSS</span>
+          </div>
+        </div>
+
         {/* Current Plan Overview Card */}
         {subscription && (
           <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm mb-10">

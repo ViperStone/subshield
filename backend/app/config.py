@@ -25,6 +25,7 @@ class Settings(BaseSettings):
     STRIPE_PRICE_STARTER: str = "price_starter_49"
     STRIPE_PRICE_GROWTH: str = "price_growth_99"
     STRIPE_PRICE_PRO: str = "price_pro_199"
+    STRIPE_RESTRICT_VISA_ONLY: bool = True
     
     RESEND_API_KEY: Optional[str] = None
     TWILIO_ACCOUNT_SID: Optional[str] = None
