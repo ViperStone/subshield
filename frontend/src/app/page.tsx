@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import {
   ShieldCheck,
   CheckCircle2,
@@ -14,27 +13,10 @@ import {
   Lock,
   Zap,
   Building2,
-  Users,
-  Sparkles
+  Users
 } from "lucide-react";
-import { demoLogin } from "../lib/api";
 
 export default function LandingPage() {
-  const router = useRouter();
-  const [demoLoading, setDemoLoading] = useState(false);
-
-  const handleDemoAccess = async () => {
-    setDemoLoading(true);
-    try {
-      await demoLogin();
-      router.push("/dashboard");
-    } catch (e) {
-      router.push("/login");
-    } finally {
-      setDemoLoading(false);
-    }
-  };
-
   return (
     <div className="min-h-screen bg-slate-900 text-white selection:bg-blue-500 selection:text-white">
       {/* Top Navbar */}
@@ -50,13 +32,6 @@ export default function LandingPage() {
           </div>
 
           <div className="flex items-center space-x-3">
-            <button
-              onClick={handleDemoAccess}
-              disabled={demoLoading}
-              className="text-xs font-semibold text-slate-400 hover:text-white px-2.5 py-1.5 rounded-lg hover:bg-slate-800 transition-colors"
-            >
-              {demoLoading ? "Opening Demo..." : "Demo Sandbox"}
-            </button>
             <Link
               href="/login"
               className="text-sm font-medium text-slate-300 hover:text-white transition-colors"
@@ -101,14 +76,12 @@ export default function LandingPage() {
             <span>Start 7-Day Free Trial</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
-          <button
-            onClick={handleDemoAccess}
-            disabled={demoLoading}
+          <a
+            href="#pricing"
             className="w-full sm:w-auto px-6 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold rounded-xl text-base transition-all border border-slate-700 flex items-center justify-center space-x-2"
           >
-            <Sparkles className="w-4 h-4 text-amber-400" />
-            <span>{demoLoading ? "Loading Sandbox..." : "Explore Demo Mode"}</span>
-          </button>
+            <span>View Pricing & Plans</span>
+          </a>
         </div>
 
         {/* Audit Risk Warning Pill */}
@@ -175,7 +148,7 @@ export default function LandingPage() {
       </section>
 
       {/* Transparent Pricing */}
-      <section className="py-20 px-6 max-w-5xl mx-auto">
+      <section id="pricing" className="py-20 px-6 max-w-5xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-3xl font-bold tracking-tight">Transparent, High-ROI Pricing</h2>
           <p className="text-slate-400 text-sm mt-2">

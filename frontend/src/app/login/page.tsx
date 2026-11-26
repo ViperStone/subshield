@@ -3,8 +3,8 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { ShieldCheck, ArrowRight, Lock, Mail, AlertCircle, Sparkles, Building2, User } from "lucide-react";
-import { loginUser, registerUser, demoLogin } from "../../lib/api";
+import { ShieldCheck, ArrowRight, Lock, Mail, AlertCircle, Building2, User } from "lucide-react";
+import { loginUser, registerUser } from "../../lib/api";
 
 function AuthContent() {
   const router = useRouter();
@@ -17,7 +17,6 @@ function AuthContent() {
   const [companyName, setCompanyName] = useState("");
   const [fullName, setFullName] = useState("");
   const [loading, setLoading] = useState(false);
-  const [demoLoading, setDemoLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -45,19 +44,6 @@ function AuthContent() {
       setError(err.message || "Authentication failed. Please check your details.");
     } finally {
       setLoading(false);
-    }
-  };
-
-  const handleDemoLogin = async () => {
-    setDemoLoading(true);
-    setError(null);
-    try {
-      await demoLogin();
-      router.push("/dashboard");
-    } catch (err: any) {
-      setError("Failed to open demo account. Ensure backend is running.");
-    } finally {
-      setDemoLoading(false);
     }
   };
 
@@ -210,33 +196,6 @@ function AuthContent() {
               <ArrowRight className="w-4 h-4" />
             </button>
           </form>
-
-          {/* Quick Demo Access Divider */}
-          <div className="relative pt-2">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-slate-700" />
-            </div>
-            <div className="relative flex justify-center text-xs uppercase">
-              <span className="bg-slate-800 px-2 text-slate-500 font-semibold tracking-wider">
-                Or explore preview
-              </span>
-            </div>
-          </div>
-
-          <div className="p-3.5 rounded-xl bg-slate-900/60 border border-slate-700/80 flex items-center justify-between">
-            <div className="flex items-center space-x-2.5 text-xs text-slate-300">
-              <Sparkles className="w-4 h-4 text-amber-400" />
-              <span>Test with 9 demo subcontractors</span>
-            </div>
-            <button
-              type="button"
-              onClick={handleDemoLogin}
-              disabled={demoLoading}
-              className="py-1.5 px-3 bg-slate-800 hover:bg-slate-700 text-blue-400 hover:text-blue-300 rounded-lg text-xs font-semibold transition-all border border-slate-700"
-            >
-              {demoLoading ? "Opening..." : "Open Demo"}
-            </button>
-          </div>
         </div>
       </div>
     </div>

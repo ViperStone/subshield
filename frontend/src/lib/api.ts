@@ -6,21 +6,6 @@ function getAuthHeaders(): Record<string, string> {
   return token ? { Authorization: `Bearer ${token}` } : {};
 }
 
-export async function demoLogin() {
-  const res = await fetch(`${API_BASE}/auth/demo-login`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" }
-  });
-  if (!res.ok) throw new Error("Failed to log in to demo account.");
-  const data = await res.json();
-  if (typeof window !== "undefined") {
-    localStorage.setItem("subshield_token", data.access_token);
-    localStorage.setItem("subshield_org_name", data.company_name);
-    localStorage.setItem("subshield_user_email", data.email);
-  }
-  return data;
-}
-
 export async function loginUser(email: string, password: string) {
   const res = await fetch(`${API_BASE}/auth/login`, {
     method: "POST",

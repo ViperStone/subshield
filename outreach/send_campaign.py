@@ -3,9 +3,18 @@ import sys
 import json
 import time
 
-# Ensure project root in sys.path
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
-from backend.app.config import settings
+# Ensure backend directory in sys.path
+_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
+_backend = os.path.join(_root, "backend")
+if _backend not in sys.path:
+    sys.path.insert(0, _backend)
+if _root not in sys.path:
+    sys.path.insert(0, _root)
+
+try:
+    from app.config import settings
+except ImportError:
+    from backend.app.config import settings
 
 def send_campaign():
     campaign_file = os.path.join(os.path.dirname(__file__), "campaign_payload.json")
