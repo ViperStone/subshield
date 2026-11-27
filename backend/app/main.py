@@ -20,7 +20,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.config import settings
 from app.database import engine, Base
 import app.models  # ensures all models are imported
-from app.routers import auth, subcontractors, public, analytics, billing
+from app.routers import auth, subcontractors, public, analytics, billing, admin
 
 # Automatically create database tables
 Base.metadata.create_all(bind=engine)
@@ -52,6 +52,7 @@ app.include_router(subcontractors.router)
 app.include_router(public.router)
 app.include_router(analytics.router)
 app.include_router(billing.router)
+app.include_router(admin.router)
 
 @app.get("/")
 def root():

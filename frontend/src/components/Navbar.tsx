@@ -3,17 +3,22 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
-import { ShieldCheck, Users, Sliders, FileSpreadsheet, CreditCard, LogOut } from "lucide-react";
+import { ShieldCheck, Users, Sliders, FileSpreadsheet, CreditCard, LogOut, Crown } from "lucide-react";
 
 export default function Navbar() {
   const router = useRouter();
   const pathname = usePathname();
   const [orgName, setOrgName] = useState("My Company");
+  const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
       const stored = localStorage.getItem("subshield_org_name");
       if (stored) setOrgName(stored);
+      const email = localStorage.getItem("subshield_user_email");
+      if (email && email.toLowerCase() === "amadouourydiallo596@gmail.com") {
+        setIsAdmin(true);
+      }
     }
   }, []);
 
@@ -31,6 +36,7 @@ export default function Navbar() {
     { name: "Compliance Rules", href: "/dashboard/rules", icon: Sliders },
     { name: "Audit Report", href: "/dashboard/audit", icon: FileSpreadsheet },
     { name: "Billing & Plans", href: "/dashboard/billing", icon: CreditCard },
+    ...(isAdmin ? [{ name: "Admin Panel", href: "/dashboard/admin", icon: Crown }] : []),
   ];
 
   return (

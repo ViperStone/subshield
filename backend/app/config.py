@@ -27,6 +27,9 @@ class Settings(BaseSettings):
     STRIPE_PRICE_PRO: str = "price_pro_199"
     STRIPE_RESTRICT_VISA_ONLY: bool = True
     
+    # Admin Dashboard
+    ADMIN_EMAIL: str = "amadouourydiallo596@gmail.com"
+    
     RESEND_API_KEY: Optional[str] = None
     TWILIO_ACCOUNT_SID: Optional[str] = None
     TWILIO_AUTH_TOKEN: Optional[str] = None
