@@ -143,7 +143,7 @@ def create_checkout_session(
                 trial_days = max(1, trial_details.get("trial_days_remaining", 7))
 
             checkout_kwargs = {
-                "payment_method_types": ["card"],
+                "allowed_payment_method_types": ["card"],
                 "line_items": [line_item],
                 "mode": "subscription",
                 "customer_email": user.email,
