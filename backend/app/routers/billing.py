@@ -112,8 +112,29 @@ def create_checkout_session(
             stripe.api_key = settings.STRIPE_SECRET_KEY
 
             price_id = getattr(settings, f"STRIPE_PRICE_{plan.upper()}", None)
-            if not price_id:
-                raise HTTPException(status_code=400, detail=f"Price ID for plan '{plan}' is not configured.")
+            
+            # Use pre-configured price ID if available, otherwise generate dynamic price_data in USD
+            if price_id and price_id.startswith("price_") and not price_id.startswith("price_starter_") and not price_id.startswith("price_growth_") and not price_id.startswith("price_pro_"):
+                line_item = {"price": price_id, "quantity": 1}
+            else:
+                plan_amounts = {
+                    "starter": {"name": "SubShield Starter Plan", "amount": 4900},
+                    "growth": {"name": "SubShield Growth Plan", "amount": 9900},
+                    "pro": {"name": "SubShield Commercial Plan", "amount": 19900}
+                }
+                plan_info = plan_amounts.get(plan, {"name": f"SubShield {plan.capitalize()} Plan", "amount": 9900})
+                line_item = {
+                    "price_data": {
+                        "currency": "usd",
+                        "product_data": {
+                            "name": plan_info["name"],
+                            "description": f"Automated subcontractor compliance monitoring ({PLAN_LIMITS.get(plan, 50)} subcontractors)."
+                        },
+                        "unit_amount": plan_info["amount"],
+                        "recurring": {"interval": "month"}
+                    },
+                    "quantity": 1
+                }
 
             # Automatically attach 7-day free trial on the card subscription if eligible
             trial_details = get_org_trial_details(user.organization)
@@ -123,7 +144,7 @@ def create_checkout_session(
 
             checkout_kwargs = {
                 "payment_method_types": ["card"],
-                "line_items": [{"price": price_id, "quantity": 1}],
+                "line_items": [line_item],
                 "mode": "subscription",
                 "customer_email": user.email,
                 "client_reference_id": user.organization_id,
